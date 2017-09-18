@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Find The Largest Number</title>
+	</head>
+	<body>
+
+		<h1 id='display'></h1>
+		<img id='photo' src =''>
+		
+		<script type="text/javascript">
+			var x = parseInt(prompt('Enter first number'));
+			var y = parseInt(prompt('Enter second number'));
+			var z = parseInt(prompt('Enter third number'));
+
+			//Step1: Determine if x larger than y and x larger than z, then write x is the larger number.
+			if(x < y && x < z)
+			{
+				console.log(x + ' is the smallest');
+			}
+			//Step 2: Determine if y is larger the z since x was found to be larger the y and z.
+			else if(y > z)
+			{
+			 	console.log(y + ' is the largest number');
+			}
+			// Step 3: Display Z as the largest number since z was found to be larger the y and X.
+			else 
+			{
+				console.log(z + ' is the smallest');
+			}
+
+ 		</script>
+
+	</body>
+
+</html>
