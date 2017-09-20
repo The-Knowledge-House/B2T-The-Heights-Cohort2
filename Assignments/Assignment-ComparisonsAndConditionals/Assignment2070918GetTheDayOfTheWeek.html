@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>
+				Get The Day Of The Week
+			</title>
+
+			<meta charset="utf-8"/>
+		
+		</head>
+	
+	<body>
+		<h1 id = "Greeting"</h1>
+		<script>
+		//  Step 1: setup calendar month, date and year variables
+			var Sysdate = new Date();
+			var Calmonth = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+
+		// Step 2: Retrieve day of the week
+			WeekDay = Sysdate.getDay();
+			
+		// Step 3: Determine day of the week;
+			
+			var Day;
+			switch (WeekDay) {
+				case 0: 
+					Day = 'Sunday';
+					break;
+				case 1: 
+					Day = 'Monday';
+					break;
+				case 2: 
+					Day = 'Tuesday';
+					break;
+				case 3: 
+					Day = 'Wednesday';
+					break;
+				case 4: 
+					Day = 'Thursday';
+					break;
+				case 5: 
+					Day = 'Friday';
+					break;
+				case 6: 
+					Day = 'Saturday';
+					break;
+				default:
+					Day = 'Day not found';
+			}
+
+
+		// Step 4: Display GPA Letter console
+			document.getElementById("Greeting").innerHTML = 'Welcome, today is ' + Day + " - " + Calmonth[Sysdate.getMonth()] + " " + Sysdate.getDate()+ ", " + Sysdate.getFullYear() + '. <br> Hope you have a productive day.';
+
+
+		</script>
+
+	</body>
+</html>
