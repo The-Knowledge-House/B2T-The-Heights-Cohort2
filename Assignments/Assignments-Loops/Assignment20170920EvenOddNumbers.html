@@ -1,62 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>Display parity for numbers</title>
+		<meta charset="utf-8"/>
 	</head>
-<body>
-<script type="text/javascript">
-	// find child
-	/*
-	var input = prompt
+	<body>
+		<h3 id = "output"></h3>
 
-	if (input < 13) {
-		console.log('WooHoo');
-	}else {
-		console.log('BooHoo');
+		<script type="text/javascript">
+			// Step 1: Setup variables to store counter and result values
+			var counter = 0;
 
+			//Step 2: Find the parity of the current value for the variable counter.  Parity is the property of an integer's inclusion in one of two categories: even or odd.
+			while(counter <= 15){
+				if(counter % 2 == 0){
+					document.getElementById("output").innerHTML += '\"' + counter + ' is even\"' + ' ';
+				}else {
+					document.getElementById("output").innerHTML += '\"' + counter + ' is odd\"' + ' ';
 
-	// Determine if number is even
-	if (input & 2 = 0) {
-		console.log(input + ' is even');
-	}else {
-		console.log(input + ' is odd');
-	}
-	}*/
-
-	// Whle Loop Example
-	var i = 1;
-	while(i <= 100){
-		console.log(i);
-		//i =1 +1;
-		i++;
-	}
-	console.log("-------------------------");
-
-	var j = 100;
-	while(j >= -20){
-		console.log(j);
-		j-=3;
-	}
-	console.log("-------------------------");
-
-	var i = 0;
-	while (i <= 99){
-		
-		if(i % 3 == 0){
-			console.log(i);
-		}
-		i++;
-	}
-	//DO While Loop
-	do {
-
-	}while ()
-
-		//incrementingby numbers greater than 1
-		//i = i + 2;
-		//i +=2
+				}
+				
+				//To place each output on a separate line, use the code inside of comment lines below.
+				/*
+				if(counter % 2 == 0){
+					document.getElementById("output").innerHTML += '\"' + counter + ' is even\"' + '<br>';
+				}else {
+					document.getElementById("output").innerHTML += '\"' + counter + ' is odd\"' + '<br>';
+				]
+				*/
+				
+				counter++
+			} 
 
 
-</script>
-</body>
+		</script>
+	</body>
 </html>
