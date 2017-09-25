@@ -16,33 +16,45 @@
 			while(counter <= 100){
 				//Step 2A: Determine if number is a multiple of 3 and/or 5  
 				if(counter % 3 == 0 && counter % 5 == 0){
-					outcome = 3;
-				}else if (counter % 5 == 0) {
-					outcome = 2;
-				}else if (counter % 3 == 0) {
-					outcome = 1;
+					document.getElementById("output").innerHTML += 'FizzBuzz, ';
+					if (counter == 100) {
+						document.getElementById("output").innerHTML += ' and FizzBuzz.';
+					}
+				}else if (counter % 5 == 0){
+					document.getElementById("output").innerHTML += 'Buzz, ';
+					if (counter = 100) {
+						document.getElementById("output").innerHTML += ' and Buzz.';
+					}
+				}else if (counter % 3 == 0){
+					document.getElementById("output").innerHTML += 'Fizz, ';
+					if (counter == 100) {
+						document.getElementById("output").innerHTML += ' and Fizz.';
+					}
 				}else{
-					outcome = 0;
-				}
-
+					document.getElementById("output").innerHTML += counter + ' ';
+					if (counter == 100) {
+						document.getElementById("output").innerHTML += ' and Fizz.';
+					}
+/*
 				//Step 2B: Display results
 				switch(outcome) {
 				    case 1:
-						document.getElementById("output").innerHTML += '\"Fizz ' + counter + '\", ';
+						document.getElementById("output").innerHTML += 'Fizz';
 						console.log(counter);
 				        break;
 				    case 2:
-						document.getElementById("output").innerHTML += '\"Buzz ' + counter + '\", ';
+						document.getElementById("output").innerHTML += 'Buzz';
 						console.log(counter);						
 				        break;
 				    case 3:
-						document.getElementById("output").innerHTML += '\"FizzBuzz ' + counter + '\", ';
+						document.getElementById("output").innerHTML += 'FizzBuzz';
 						console.log(counter);						
 						break;
 				    default: 
-						document.getElementById("output").innerHTML += '\"Number ' + counter + '\", ';
+						document.getElementById("output").innerHTML += counter;
 						console.log(counter);						
 				}
+*/
 			counter++
 			} 
 
