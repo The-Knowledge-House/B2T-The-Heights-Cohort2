@@ -17,9 +17,9 @@
 				//Step 2A: Determine if number is a multiple of 3 and/or 5  
 				if(counter % 3 == 0 && counter % 5 == 0){
 					outcome = 3;
-				}else if (counter % !3 == 0 && counter % 5 == 0) {
+				}else if (counter % 5 == 0) {
 					outcome = 2;
-				}else if (counter % 3 == 0 && counter % 5 !== 0) {
+				}else if (counter % 3 == 0) {
 					outcome = 1;
 				}else{
 					outcome = 0;
@@ -29,17 +29,21 @@
 				switch(outcome) {
 				    case 1:
 						document.getElementById("output").innerHTML += '\"Fizz ' + counter + '\", ';
+						console.log(counter);
 				        break;
 				    case 2:
 						document.getElementById("output").innerHTML += '\"Buzz ' + counter + '\", ';
+						console.log(counter);						
 				        break;
 				    case 3:
 						document.getElementById("output").innerHTML += '\"FizzBuzz ' + counter + '\", ';
+						console.log(counter);						
 						break;
 				    default: 
 						document.getElementById("output").innerHTML += '\"Number ' + counter + '\", ';
+						console.log(counter);						
 				}
-				counter++
+			counter++
 			} 
 
 		</script>
