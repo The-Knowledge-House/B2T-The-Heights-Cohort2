@@ -7,56 +7,96 @@
 	<body>
 		<h3 id = "output"></h3>
 
-		<script type="text/javascript">
-			// Step 1: Setup variables to store counter and result values
-			var counter = 1;
-			var outcome;
+		<script type="text/javascript">			
+		/* Alternative 1 - Use only If...Else Statements to determine and display the number, Fizz when the number is a multiple of 3, Buzz when the number is a multiple of 5, or FizzBuzz when the number is a multiple of 3 and 5. */
 
-			//Step 2: Find the parity of the current value for the variable counter.  Parity is the property of an integer's inclusion in one of two categories: even or odd.
-			while(counter <= 100){
-				//Step 2A: Determine if number is a multiple of 3 and/or 5  
-				if(counter % 3 == 0 && counter % 5 == 0){
-					document.getElementById("output").innerHTML += 'FizzBuzz, ';
-					if (counter == 100) {
-						document.getElementById("output").innerHTML += ' and FizzBuzz.';
-					}
-				}else if (counter % 5 == 0){
-					document.getElementById("output").innerHTML += 'Buzz, ';
-					if (counter = 100) {
-						document.getElementById("output").innerHTML += ' and Buzz.';
-					}
-				}else if (counter % 3 == 0){
-					document.getElementById("output").innerHTML += 'Fizz, ';
-					if (counter == 100) {
-						document.getElementById("output").innerHTML += ' and Fizz.';
-					}
-				}else{
-					document.getElementById("output").innerHTML += counter + ' ';
-					if (counter == 100) {
-						document.getElementById("output").innerHTML += ' and Fizz.';
-					}
 /*
-				//Step 2B: Display results
-				switch(outcome) {
-				    case 1:
-						document.getElementById("output").innerHTML += 'Fizz';
-						console.log(counter);
-				        break;
-				    case 2:
-						document.getElementById("output").innerHTML += 'Buzz';
-						console.log(counter);						
-				        break;
-				    case 3:
-						document.getElementById("output").innerHTML += 'FizzBuzz';
-						console.log(counter);						
-						break;
-				    default: 
-						document.getElementById("output").innerHTML += counter;
-						console.log(counter);						
+			// Step 1: Initialize variable to hold number values
+			var counter = 1;
+
+			while(counter <= 100){
+				console.log(counter);
+				//Step 2A: Determine if number is a multiple of 3 and/or 5  
+				if(counter % 3 == 0 && counter % 5 == 0 && counter !== 100){
+					document.getElementById("output").innerHTML += ' FizzBuzz, ';
 				}
+				else if(counter % 3 == 0 && counter % 5 == 0 && counter !== 100){
+					document.getElementById("output").innerHTML += ' and FizzBuzz. ';
+				}
+				else if (counter % 5 == 0 && counter !== 100){
+					document.getElementById("output").innerHTML += 'Buzz, ';
+				}
+				else if (counter % 5 == 0 && counter == 100){
+					document.getElementById("output").innerHTML += ' and Buzz. ';
+				}
+				else if (counter % 3 == 0 && counter !== 100){
+					document.getElementById("output").innerHTML += 'Fizz, ';
+				}
+				else if (counter % 3 == 0 && counter == 100){
+						document.getElementById("output").innerHTML += ' and Fizz. ';
+				}
+				else {
+					document.getElementById("output").innerHTML += counter + ', ';
+				}
+				counter++
+			}
 */
-			counter++
-			} 
+
+		/* Alternative 2 - Use only case and If...Else Statements to determine and display the number, Fizz when the number is a multiple of 3, Buzz when the number is a multiple of 5, or FizzBuzz when the number is a multiple of 3 and 5. */
+
+				// Step 1: Setup variables to store count and result values
+				var counter = 1;
+				var outcome = 0;
+
+				//Step 2: Determine and display the value to display
+				while(counter <= 100){
+
+					//Step 2A: Determine the value to display
+					if(counter % 3 == 0 && counter % 5 == 0){
+						outcome = 1
+					}
+					else if (counter % 5 == 0){
+						outcome = 2;
+					}
+					else if (counter % 3 == 0){
+						outcome = 3;
+					}else {
+						outcome = 0;
+					}
+
+					//Step 2B: Display results
+					switch(outcome) {
+					    case 1:
+							if (counter !== 100){
+								document.getElementById("output").innerHTML += ' FizzBuzz, ';
+							}else {
+								document.getElementById("output").innerHTML += ' and FizzBuzz. ';
+							}
+					        break;
+						case 2:
+							if (counter !== 100){
+								document.getElementById("output").innerHTML += 'Buzz, ';
+							}else {
+								document.getElementById("output").innerHTML += ' and Buzz. ';
+							}						
+					        break;
+							
+					    case 3:
+					    	if (counter !== 100){
+								document.getElementById("output").innerHTML += 'Fizz, ';
+							}else {
+								document.getElementById("output").innerHTML += ' and Fizz. ';
+							}						
+					        break;
+					    default: 
+					   		if (counter !== 100){
+							document.getElementById("output").innerHTML += counter + ', ';					
+							}else {
+								document.getElementById("output").innerHTML += counter + '.';
+							}
+						}
+				counter++
+				} 
 
 		</script>
 	</body>
