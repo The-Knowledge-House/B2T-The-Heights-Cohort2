@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Display Names</title>
+
+		<meta charset="utf-8"/>
+
+	</head>
+
+	<body>
+		<p id="display"></p>
+		
+		<form>
+			First name: <input type="text" id="fname" value="Curtis"><br>
+			Last name: <input type="text" id="lname" value="Jackson"><br>
+			<input type="button" value="Submit" onclick="getFormvalue()">
+		</form>
+
+		<script type="text/javascript">
+			var FirstName = "fname", LastName = "lname";
+			console.log(FirstName + ' ' + LastName);
+
+			document.getElementById("display").innerHTML = DisplayName(FirstName,LastName);
+
+			function DisplayName(FirstName,LastName){
+				return 'Hello ' + FirstName + ' ' + LastName;
+			}
+
+		</script>
+
+
+
+
+
+	</body>
+</html>
