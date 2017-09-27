@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style type="text/css" onclick="ClickSquare(this)">
+			th {
+				height: 200px;
+				width: 200px;
+				font-size: 100px;
+			}
+		</style>
+	</head>
+	<body>
+	<table margin = "50px", align = "center", border="5">
+		<tr>
+			<th id = "square0" onclick="ClickSquare(this)"></th>
+			<th id = "square1" onclick="ClickSquare(this)"></th>
+			<th id = "square2" onclick="ClickSquare(this)"></th>
+		</tr>
+			<tr>
+			<th id = "square3" onclick="ClickSquare(this)"></th>
+			<th id = "square4" onclick="ClickSquare(this)"></th>
+			<th id = "square5" onclick="ClickSquare(this)"></th>
+		</tr>
+		<tr>
+			<th id = "square6" onclick="ClickSquare(this)"></th>
+			<th id = "square7" onclick="ClickSquare(this)"></th>
+			<th id = "square8" onclick="ClickSquare(this)"></th>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		var board = ['', '', '', '', '', '', '', '', '',]
+		var player = 'X';
+
+		function ClickSquare(square) {
+			if(square.innerHTML == ''){
+				square.innerHTML = player;
+				
+				//gets last char of element's id
+				var i = square.id.charAt(square.id.length-1);
+				board[i] = player;
+				
+				//changes value of player depending on tis value
+				player = (player == 'X') ? 'O' : 'X';
+				console.log(board);
+
+				evalBoard();
+			}
+		}
+
+		function evalBoard(){
+			if (board[0] != '' && board[1] != '' && board[2] != ''){
+				console.log('WINNER IS ' + board[0]);
+			}else if (board[3] != '' && board[4] != '' && board[5] != ''){
+				console.log('WINNER IS ' + board[3]);
+			}else if (board[6] != '' && board[7] != '' && board[8] != ''){
+				console.log('WINNER IS ' + board[6]);
+			}
+		}
+
+	</script>
+	</body>
+</html>

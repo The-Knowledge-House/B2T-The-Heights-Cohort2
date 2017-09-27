@@ -8,7 +8,6 @@
 	</head>
 
 	<body>
-		<p id="display"></p>
 		
 		<form>
 			First name: <input type="text" id="fname" value="Curtis"><br>
@@ -16,34 +15,19 @@
 			<input type="button" value="Submit" onclick="getFormvalue()">
 		</form>
 
+		<p id="display"></p>
+
 		<script type="text/javascript">
 			var FirstName = "fname", LastName = "lname";
 			var welcome = getFormvalue();
 
-			function getFormvalue(FirstName, LastName){
-				FName = document.getElementById("fname").value;
-				LName = document.getElementById("lname").value;
-			
-				console.log('Hello ' + FName + ' ' + LName);
-				return 'Hello ' + FirstName + ' ' + LastName;
+			function getFormvalue(){
+				FirstName = document.getElementById("fname").value;
+				LastName = document.getElementById("lname").value;
+				document.getElementById("display").innerHTML = 'Hello ' + FirstName + ' ' + LastName;
 			}
-			
-			function DisplayName(FirstName, LastName) {
-				console.log('Hello ' + FirstName + ' ' + LastName);
-			    return 'Hello ' + FirstName + ' ' + LastName;
-			}
-
-			document.getElementById("display").innerHTML = DisplayName(FirstName, LastName);
-
-/*
-			document.getElementById("display").innerHTML = 'Hello ' + FirstName + ' ' + LastName;
-*/
 
 		</script>
-
-
-
-
 
 	</body>
 </html>
