@@ -16,9 +16,20 @@
 		</table><br>
 		Column 1: <input type="text" id="col1" value="Curtis"><br>
 		Column 2: <input type="text" id="col2" value="Jackson"><br>
+
+		<input type="button" onclick="insertRow()" value="Insert Row">
 		
 		<script type="text/javascript">
 
+			function insertRow() {
+			    var table = document.getElementById("myTable");
+			    var row = table.insertRow();
+			    var cell1 = row.insertCell();
+			    var cell2 = row.insertCell();
+			    cell1.innerHTML = document.getElementById("col1").value;
+			    cell2.innerHTML = document.getElementById("col2").value;
+			}
+			
 		</script>
 	</body>
 </html>
