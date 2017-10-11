@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Deli Counter - Startup Monitor</title>
+
+		<meta charset="utf-8"/>
+
+<!--		<link rel="stylesheet" href="StylesheetForDeliCounter20171010.css"> -->
+
+		<style type="text/css">
+		/* Common styles */
+			.pageHeader {
+				text-align: center;
+				font-size: 14px;
+			    background: lime;
+			    border: 1px solid #cccccc;
+			    background-size: 24px 18px;
+			    padding: 2px;
+			    background-repeat: no-repeat;
+			}
+
+			.SlogonThanks {
+				text-align: center;
+				font-size: 12px;
+			    background: cyan;
+			    border: 1px solid #cccccc;
+			    background-size: 24px 18px;
+			    padding: 2px;
+			    background-repeat: no-repeat;
+			}
+
+			.Queue {
+				text-align: center;
+			    border: 1px solid #cccccc;
+			    background-size: 20px 15px;
+			    background-repeat: no-repeat;
+			}
+
+			.startTD {
+				text-size: 24px;
+			}
+
+			table, th, td {
+			    border: 1px solid black;
+			    border-collapse: collapse;
+			}
+
+			td {
+				text-size: 18px;
+				 padding: 5px;
+				 empty-cells: show;
+			}
+
+			.buttonOrder:hover {
+			    background-color: lime;
+			    border: none;
+			    color: black;
+			    padding: 15px 32px;
+			    text-align: center; 
+			    text-decoration: none;
+			    display: inline-block;
+			    font-size: 24px;
+			    margin: 4px 2px;
+			    cursor: pointer;
+			}
+
+		</style>
+
+	</head>
+	
+	<body onload = openBusiness()>
+
+	<!--  Display Header -->
+		<div class = "pageHeader"> 
+			<h2 id = "monitor"></h2>
+			<h2 id = "dateInfo"></h2>
+		</div>
+	<!-- Display Slogan and Thank You -->
+		<div class="SlogonThanks">
+			<h2 id = "Slogan"></h2>
+			<h2 id = "Thanks"></h2>
+		</div>
+
+	<!-- Display Queue -->
+		<div id = "ServingList" class="Queue">
+			<h2>Customer Orders</h2>
+			<h2 id = "customerName"></h2>
+			<h2 id = "customerOrder"></h2>
+		</div>
+
+	<!-- Display Link To Order And Waiting Line Page -->
+		<div align = "center" id = "GoPage2"  style="font-family: arial; font-size: 20px; padding:40px;">
+			<a href="c.html">
+				Take Orders
+			</a> 
+			</button>	
+		</div>
+
+
+		<script type="text/javascript">
+
+		//Display monitor name information
+		document.getElementById("monitor").innerHTML = "Frugrainian Deli Monitor";
+
+		//Display today's date at startup
+		var today = new Date();
+		var day, month;
+		switch (new Date().getDay()) {
+		    case 0:
+		        day = "Sunday";
+		        break;
+		    case 1:
+		        day = "Monday";
+		        break;
+		    case 2:
+		        day = "Tuesday";
+		        break;
+		    case 3:
+		        day = "Wednesday";
+		        break;
+		    case 4:
+		        day = "Thursday";
+		        break;
+		    case 5:
+		        day = "Friday";
+		        break;
+		    case  6:
+		        day = "Saturday";
+		}
+
+		switch (new Date().getMonth()) {
+		    case 0:
+		        month = "January";
+		        break;
+		    case 1:
+		        month = "February";
+		        break;
+		    case 2:
+		        month = "March";
+		        break;
+		    case 3:
+		        month = "April";
+		        break;
+		    case 4:
+		        month = "May";
+		        break;
+		    case 5:
+		        month = "June";
+		        break;
+		    case 6:
+		        month = "July";
+		        break;
+		    case 7:
+		        month = "August";
+		        break;
+		    case 8:
+		        month = "September";
+		        break;
+		    case 9:
+		        month = "October";
+		        break;
+		    case 10:
+		        month = "November";
+		        break;
+		    case 11:
+		        month = "Decemebr";
+		}
+		document.getElementById("dateInfo").innerHTML = day + " " + month + " " + today.getDate() + ", " + today.getFullYear();
+
+		//Display Slogan
+		var sloganWords = "We Appreciate You.";
+		document.getElementById("Slogan").innerHTML = sloganWords;
+
+		//Display Thank You
+		var thanks = "Thank You for letting us be of service.";
+		document.getElementById("Thanks").innerHTML = thanks;
+
+		//Display Blank Order Queue
+		//Initialize Monitior table
+		function openBusiness() {
+		    //Create Table
+		    var startTable = document.createElement("TABLE");
+		    startTable.setAttribute("id", "StartTable");
+		    startTable.setAttribute("align", "center");
+			var div3 = document.getElementById("ServingList");
+			div3.appendChild(startTable);
+
+		    //Create caption and add to table		    startTable.setAttribute("id", "StartTable");
+		    var tableCaption = document.createElement("CAPTION");
+		    tableCaption.setAttribute("style", "font-size: 24px");
+		    var captionText = document.createTextNode("Customers In Line");
+		    tableCaption.appendChild(captionText);
+			var StartTable = document.getElementById("StartTable")
+		    StartTable.insertBefore(tableCaption, StartTable.childNodes[0]);
+
+		    var startTableHR = document.createElement("TR");
+		    startTableHR.setAttribute("id", "HeaderRow");
+		    startTableHR.setAttribute("style", "font-size: 24px");
+		    document.getElementById("StartTable").appendChild(startTableHR);
+
+		    var StartTableHRC1 = document.createElement("TD");
+		    var t = document.createTextNode("Number");
+		    StartTableHRC1.appendChild(t);
+		    document.getElementById("HeaderRow").appendChild(StartTableHRC1);
+
+		    var StartTableHRC2 = document.createElement("TD");
+		    var t = document.createTextNode("Name");
+		    StartTableHRC2.appendChild(t);
+		    document.getElementById("HeaderRow").appendChild(StartTableHRC2);
+
+		    var StartTableHRC3 = document.createElement("TD");
+		    var t = document.createTextNode("Order");
+		    StartTableHRC3.appendChild(t);
+		    document.getElementById("HeaderRow").appendChild(StartTableHRC3);
+
+		    var startTableDR1 = document.createElement("TR");
+		    startTableDR1.setAttribute("id", "DataRow");
+		    startTableDR1.setAttribute("style", "font-size: 24px");
+		    document.getElementById("StartTable").appendChild(startTableDR1);
+
+		    var startTableDR1C0 = document.createElement("TD");
+		    startTableDR1C0.setAttribute("id", "DataCell");
+		    var t = document.createTextNode("Line Empty");
+		    startTableDR1C0.appendChild(t);
+		    document.getElementById("DataRow").appendChild(startTableDR1C0);
+
+		    document.getElementById("DataCell").colSpan = "3";
+		}
+
+		</script>
+	</body>
+</html>

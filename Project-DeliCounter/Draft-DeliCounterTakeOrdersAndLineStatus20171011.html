@@ -6,7 +6,7 @@
 
 		<meta charset="utf-8"/>
 
-/*		<link rel="stylesheet" href="StylesheetForDeliCounter20171010.css"> */
+<!--		<link rel="stylesheet" href="StylesheetForDeliCounter20171010.css"> -->
 
 		<style type="text/css">
 			.pageHeader {
@@ -128,7 +128,6 @@
 
 		<!-- Take Order -->
 		<div id = "div4">
-		<!--Number: <p id = "tableLengthNumber" onclick="getTableLengthOrder()" value = "OrderNumber"></p> -->
 			Name: <input type="text" id="customer" value="name"><br>
 			Order: <input type="text" id="item" value="choice"><br>
 			<input type="button" onclick="recordOrder()" value ="Place Order" class="buttonOrder">
@@ -147,8 +146,12 @@
 		</div>
 
 		<script type="text/javascript">
-		//Create Customer Line Table
+
 		//Initialize Monitior table
+		var lineEmpty = true;		
+
+		//Create Customer Line Table
+
 		function openBusiness() {
 		    //Create Table
 		    var startTable = document.createElement("TABLE");
@@ -274,6 +277,7 @@
 			document.getElementById("Slogan").innerHTML = sloganWords;
 			document.getElementById("Thanks").innerHTML = thanks;
 
+
 			//Record Order
 /*			function getTableLengthOrder() {
 				var tableLength = document.getElementById("StartTable").rows.length;
@@ -284,7 +288,7 @@
 				var tableLength = document.getElementById("StartTable").rows.length; 
 				console.log("Number of Rows in Table before row insertion " + tableLength);
 				//Step1: Remove Line Empty when number of rows in Table is 2
-				if (tableLength <= 2) {
+				if (lineEmpty == true) {
 					document.getElementById("StartTable").deleteRow(1);
 				}
 				//Step2: Add row to table
@@ -294,10 +298,13 @@
 			    var newtd1 = newtr.insertCell(1);
 			    var newtd2 = newtr.insertCell(2);
 
-			    // Step 2: Store customer number, name and order.
-/*			    newtd1.innerHTML = document.getElgetElementById("StartTable").rows.length;*/
+			    // Step 3: Store customer number, name and order.
+			    newtd0.innerHTML = document.getElementById("StartTable").rows.length;
 			    newtd1.innerHTML = document.getElementById("customer").value;
 				newtd2.innerHTML = document.getElementById("item").value;
+
+				//Step 4: Enalble adding rows to table by setting lineEmpty to 
+				lineEmpty = false;
 			}
 
 			function removeServerCustomer() {
