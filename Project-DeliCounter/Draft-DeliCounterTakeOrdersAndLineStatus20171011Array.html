@@ -157,6 +157,7 @@
 		}		
 		console.log(NoOrders);
 
+		OrdersArray.shift(NoOrder);
 		console.log(OrdersArray);
 
 
@@ -289,12 +290,15 @@
 
 
 			//Record Order
-/*			function getTableLengthOrder() {
-				var tableLength = document.getElementById("StartTable").rows.length;
-				document.getElgetElementById("tableLengthNumber").innerHTML = tableLength;
-			}
-*/
 			function recordOrder(){
+				var Order = {
+					postion: OrdersArray.length,
+					Name: document.getElementById("customer").value;,
+					Order: document.getElementById("name").value;
+				}
+				console.log(Order);
+
+
 				var tableLength = document.getElementById("StartTable").rows.length; 
 				console.log("Number of Rows in Table before row insertion " + tableLength);
 				//Step1: Remove Line Empty when number of rows in Table is 2
@@ -311,7 +315,7 @@
 			    // Step 3: Store customer number, name and order.
 			    newtd0.innerHTML = document.getElementById("StartTable").rows.length;
 			    newtd1.innerHTML = document.getElementById("customer").value;
-				newtd2.innerHTML = document.getElementById("item").value;
+				newtd2.innerHTML = document.getElementById("customer").value;
 
 				//Step 4: Enalble adding rows to table by setting lineEmpty to 
 				lineEmpty = false;
