@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Deli Counter Monitor</title>
+
+		<meta charset="utf-8"/>
+		<style type="text/css">
+			.pageHeader {
+				text-align: center;
+			    background: green;
+			    border: 1px solid #cccccc;
+			    background-size: 32px 24px;
+			    padding: 2px;
+			    background-repeat: no-repeat;
+			}
+
+			.Serving {
+				text-align: center;
+			    background: cyan;
+			    border: 1px solid #cccccc;
+			    background-size: 24px 18px;
+			    padding: 2px;
+			    background-repeat: no-repeat;
+			}
+
+			.Queue {
+				text-align: center;
+			    border: 1px solid #cccccc;
+			    background-size: 24px 18px;
+			    padding: 2px;
+			    background-repeat: no-repeat;
+			}
+		</style>
+
+
+	</head>
+	
+	<body
+			<div class="pageHeader">
+				<h2>FruGrainian Deli Monitor</h2>
+				<h2 id="dateInfo"></h2>
+				<h2 id="Slogan"></h2>
+			</div>
+
+			<div class="Serving">
+				<h2>Currently Serving</h2>
+
+			</div>
+<!--
+			<div class="Queue">
+				<table id="initializeDisplay" align = "center" border = "1">
+				  <tr>
+				    <th>Position</th>
+				    <th>Name</th>
+				    <th>Order</th>
+				  </tr>
+				  <tr size = 240px>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				  </tr>
+
+			</div>
+-->
+
+<!--		<table id="initializeDisplay" border = "1">
+			  <tr>
+			    <th>Position</th>
+			    <th>Name</th>
+			    <th>Order</th>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			  </tr>
+			
+		</table>
+-->
+
+		<script type="text/javascript">
+				//Display Date
+				var today = new Date();
+				document.getElementById("dateInfo").innerHTML = today;
+/*				
+				//Display Slogan
+				var slogan = "We Appreciate You";
+				console.log(slogan);
+				document.getElementById("Slogan").innerHTML = slogan;*/
+
+/*			function openBusiness() {
+				//Get Day Month, Date, and Year
+				var today = new Date();
+				var day, month;
+				switch (new Date().getDay()) {
+				    case 0:
+				        day = "Sunday";
+				        break;
+				    case 1:
+				        day = "Monday";
+				        break;
+				    case 2:
+				        day = "Tuesday";
+				        break;
+				    case 3:
+				        day = "Wednesday";
+				        break;
+				    case 4:
+				        day = "Thursday";
+				        break;
+				    case 5:
+				        day = "Friday";
+				        break;
+				    case  6:
+				        day = "Saturday";
+				}
+
+				switch (new Date().getMonth()) {
+				    case 0:
+				        month = "January";
+				        break;
+				    case 1:
+				        month = "February";
+				        break;
+				    case 2:
+				        month = "March";
+				        break;
+				    case 3:
+				        month = "April";
+				        break;
+				    case 4:
+				        month = "May";
+				        break;
+				    case 5:
+				        month = "June";
+				        break;
+				    case 6:
+				        month = "July";
+				        break;
+				    case 7:
+				        month = "August";
+				        break;
+				    case 8:
+				        month = "September";
+				        break;
+				    case 9:
+				        month = "October";
+				        break;
+				    case 10:
+				        month = "November";
+				        break;
+				    case 11:
+				        month = "Decemebr";
+				}
+				document.getElementById("dateInfo").innerHTML = day + " " + month + " " + today.getFullYear()
+			}
+*/
+
+/*
+			    var initTable = document.createElement("TABLE");
+			    initTable.setAttribute("id", "myTable");
+			    initTable.setAttribute("style", "Queue");
+			    document.body.appendChild(initTable);
+
+			    var y = document.createElement("TR");
+			    y.setAttribute("id", "myTr");
+			    document.getElementById("myTable").appendChild(y);
+
+			    var z = document.createElement("TD");
+			    var t = document.createTextNode("cell");
+			    z.appendChild(t);
+			    document.getElementById("myTr").appendChild(z);
+*/		
+			}
+
+		</script>
+
+	</body>
+
+</html>
