@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Assignment-ArraysAndDOM</title>
+			<style>
+				.center {
+	    			margin: auto;
+	    			width: 50%;
+	    			border: 3px solid blue;
+	    			padding: 20px;
+				}
+			</style>
+		</head>
+		<body>
+		<div class="center">
+			<p id="Original"></p>
+			<p id="Updated"></p>
+		</div>
+
+		<script type="text/javascript">
+			//Set storage variables
+			var fruits = ['apple', 'oranges', 'kiwi'];
+			var text
+
+			//Display the original list of fruits
+			document.getElementById("Original").innerHTML = fruits;
+
+
+			//Request input for more fruits and create an updated fruit list.
+			fruits.push(prompt('Add more fruits'));
+			text = fruits.sort();
+
+
+			//Order and display the updated fruit list
+			text = fruits.join(" with ");
+			document.getElementById("Updated").innerHTML = text;
+
+
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>
+				FindStudentGradeAverage
+			</title>
+
+			<meta charset="utf-8"/>
+		
+		</head>
+	
+	<body>
+		<h1 id = "GA-Letter"></h1>
+
+		<script>
+		//  Step 1: Setup storage locations for grades and grade average
+			var Grades;
+			Grades = [80, 77, 88, 95, 68];
+			var GA;
+			var GA$Letter;
+
+
+		// Step 2: Compute GPA
+			GA = (Grades[0] + Grades[1] + Grades[2] + Grades[3] + Grades[4])/Grades.length;
+
+		// Step 3: Determine letter for Grade Average; 
+			if (GA < 60) {
+				GA$Letter = "F";
+			} 
+			else if (GA >= 60 && GA <= 70){
+				GA$Letter = "D";
+			}
+			else if (GA >= 71 && GA <= 79){
+				GA$Letter = "C";
+			}			
+			else if (GA >= 80 && GA <= 89){
+				GA$Letter = "B";
+			}
+			else {
+				GA$Letter = "A";
+			}
+
+
+		// Step 4: Display GPA Letter console
+			console.log("Student Grade is " + GA$Letter);
+		    
+		</script>
+
+	</body>
+</html>

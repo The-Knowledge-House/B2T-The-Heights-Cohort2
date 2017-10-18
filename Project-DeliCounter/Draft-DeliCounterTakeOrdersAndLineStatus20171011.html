@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Take Orders And Line Status</title>
+
+		<meta charset="utf-8"/>
+
+<!--		<link rel="stylesheet" href="StylesheetForDeliCounter20171010.css"> -->
+
+		<style type="text/css">
+			.pageHeader {
+				text-align: center;
+				font-size: 14px;
+			    background: lime;
+			    border: 1px solid #cccccc;
+			    background-size: 24px 18px;
+			    padding: 2px;
+			    background-repeat: no-repeat;
+			}
+
+			.SlogonThanks {
+				text-align: center;
+				font-size: 12px;
+			    background: cyan;
+			    border: 1px solid #cccccc;
+			    background-size: 24px 18px;
+			    padding: 2px;
+			    background-repeat: no-repeat;
+			}
+
+			#div3 {
+			    display: inline-block;
+			    width: 50%;
+			}
+
+			#div4 {
+			    display: inline-block;
+			    width: 40%
+			}
+
+			#div5 {
+			    display: inline-block;
+			    width: 50%;
+			}
+
+			#div6 {
+			    display: inline-block;
+			    width: 40%
+			}
+
+			.Menu {
+				align: left;
+			    border: 1px solid #cccccc;
+			    padding-left: 100px;
+			    background-repeat: no-repeat;
+			}
+			.Queue {
+				text-align: center;
+			    border: 1px solid #cccccc;
+			    background-size: 20px 15px;
+			    background-repeat: no-repeat;
+			}
+
+			.startTD {
+				text-size: 12px;
+			}
+
+			.buttonOrder:hover {
+			    background-color: lime;
+			    border: none;
+			    color: black;
+			    padding: 10px 20px;
+			    text-align: center;
+			    text-decoration: none;
+			    display: inline-block;
+			    font-size: 12px;
+			    margin: 4px 4px;
+			    cursor: pointer;
+			}
+
+			/* <!-- Common styles --> */
+			table, th, td {
+			    border: 1px solid black;
+			    border-collapse: collapse;
+			}
+
+			table {
+				align: center;
+			}
+
+			td {
+				text-size: 12px;
+				 padding: 4px;
+				 empty-cells: show;
+			}
+
+		</style>
+	</head>
+
+	<body onload = openBusiness()>
+
+		<!--  Display Header -->
+		<div id = "div1" class = "pageHeader">
+			<h2 id = "monitor"></h2>
+			<h2 id = "dateInfo"></h2>
+		</div>
+
+		<!--  Display Slogan and Thank You -->
+		<div id = "div2" class="SlogonThanks">
+			<h2 id = "Slogan"></h2>
+			<h2 id = "Thanks"></h2>
+			
+		</div>
+
+		<!-- Display Menu -->
+		<div id = "div3">
+			<h2 >Summer Menu</h2>
+			<ul >
+				<li>1. Foods Of the Day</li>
+				<li>2. Foods Of the Season</li>
+				<li>3. Juice Of the Day</li>
+				<li>4. Juice Of the Season</li>
+				<li>5. Chef's Special Of the Day</li>
+				<li>6. Manager's Special Cherry Pie</li>
+			</ul>
+		</div>
+
+		<!-- Take Order -->
+		<div id = "div4">
+			Name: <input type="text" id="customer" value="name"><br>
+			Order: <input type="text" id="item" value="choice"><br>
+			<input type="button" onclick="recordOrder()" value ="Place Order" class="buttonOrder">
+		</div>
+
+		<!-- Display Customers On Line -->
+		<div id = "div5" class="Queue">
+			<h2>Customer Orders</h2>
+		</div>
+
+		<div id = "div6" class="Queue">
+			<h2>Currently Serving</h2>
+			<h2 id = "customerName"></h2>
+			<h2 id = "customerOrder"></h2>
+			<input type="button" onclick="removeServerCustomer()" value="Customer Served" class="buttonOrder">
+		</div>
+
+		<script type="text/javascript">
+
+		//Initialize Monitior table
+		var lineEmpty = true;		
+
+		//Create Customer Line Table
+
+		function openBusiness() {
+		    //Create Table
+		    var startTable = document.createElement("TABLE");
+		    startTable.setAttribute("id", "StartTable");
+		    startTable.setAttribute("align", "center");
+			var div3 = document.getElementById("div5");
+			div3.appendChild(startTable);
+
+		    //Create caption and add to table		    startTable.setAttribute("id", "StartTable");
+		    var tableCaption = document.createElement("CAPTION");
+		    tableCaption.setAttribute("style", "font-size: 14px");
+		    var captionText = document.createTextNode("Customers In Line");
+		    tableCaption.appendChild(captionText);
+			var StartTable = document.getElementById("StartTable")
+		    StartTable.insertBefore(tableCaption, StartTable.childNodes[0]);
+
+		    var startTableHR = document.createElement("TR");
+		    startTableHR.setAttribute("id", "HeaderRow");
+		    startTableHR.setAttribute("style", "font-size: 14px");
+		    document.getElementById("StartTable").appendChild(startTableHR);
+
+		    var StartTableHRC1 = document.createElement("TD");
+		    var t = document.createTextNode("Number");
+		    StartTableHRC1.appendChild(t);
+		    document.getElementById("HeaderRow").appendChild(StartTableHRC1);
+
+		    var StartTableHRC2 = document.createElement("TD");
+		    var t = document.createTextNode("Name");
+		    StartTableHRC2.appendChild(t);
+		    document.getElementById("HeaderRow").appendChild(StartTableHRC2);
+
+		    var StartTableHRC3 = document.createElement("TD");
+		    var t = document.createTextNode("Order");
+		    StartTableHRC3.appendChild(t);
+		    document.getElementById("HeaderRow").appendChild(StartTableHRC3);
+
+		    var startTableDR1 = document.createElement("TR");
+		    startTableDR1.setAttribute("id", "DataRow");
+		    startTableDR1.setAttribute("style", "font-size: 12px");
+		    document.getElementById("StartTable").appendChild(startTableDR1);
+
+		    var StartTableDR1C0 = document.createElement("TD");
+		    StartTableDR1C0.setAttribute("id", "DataCell");
+		    var t = document.createTextNode("Line Empty");
+		    StartTableDR1C0.appendChild(t);
+		    document.getElementById("DataRow").appendChild(StartTableDR1C0);
+
+		    document.getElementById("DataCell").colSpan = "3";
+		}
+
+			//Display monitor name information
+			document.getElementById("monitor").innerHTML = "Frugrainian Deli Monitor";
+
+			//Display today's date at startup
+			var today = new Date();
+			var day, month;
+			switch (new Date().getDay()) {
+			    case 0:
+			        day = "Sunday";
+			        break;
+			    case 1:
+			        day = "Monday";
+			        break;
+			    case 2:
+			        day = "Tuesday";
+			        break;
+			    case 3:
+			        day = "Wednesday";
+			        break;
+			    case 4:
+			        day = "Thursday";
+			        break;
+			    case 5:
+			        day = "Friday";
+			        break;
+			    case  6:
+			        day = "Saturday";
+			}
+
+			switch (new Date().getMonth()) {
+			    case 0:
+			        month = "January";
+			        break;
+			    case 1:
+			        month = "February";
+			        break;
+			    case 2:
+			        month = "March";
+			        break;
+			    case 3:
+			        month = "April";
+			        break;
+			    case 4:
+			        month = "May";
+			        break;
+			    case 5:
+			        month = "June";
+			        break;
+			    case 6:
+			        month = "July";
+			        break;
+			    case 7:
+			        month = "August";
+			        break;
+			    case 8:
+			        month = "September";
+			        break;
+			    case 9:
+			        month = "October";
+			        break;
+			    case 10:
+			        month = "November";
+			        break;
+			    case 11:
+			        month = "December";
+
+			}
+			document.getElementById("dateInfo").innerHTML = day + " " + month + " " + today.getDate() + ", " + today.getFullYear();
+
+			//Display Slogan
+			var sloganWords = "We Appreciate You.";
+			var thanks = "Thank You for letting us be of service.";
+			document.getElementById("Slogan").innerHTML = sloganWords;
+			document.getElementById("Thanks").innerHTML = thanks;
+
+
+			//Record Order
+/*			function getTableLengthOrder() {
+				var tableLength = document.getElementById("StartTable").rows.length;
+				document.getElgetElementById("tableLengthNumber").innerHTML = tableLength;
+			}
+*/
+			function recordOrder(){
+				var tableLength = document.getElementById("StartTable").rows.length; 
+				console.log("Number of Rows in Table before row insertion " + tableLength);
+				//Step1: Remove Line Empty when number of rows in Table is 2
+				if (lineEmpty == true) {
+					document.getElementById("StartTable").deleteRow(1);
+				}
+				//Step2: Add row to table
+				var table = document.getElementById("StartTable");
+			    var newtr = table.insertRow(-1);
+			    var newtd0 = newtr.insertCell(0);
+			    var newtd1 = newtr.insertCell(1);
+			    var newtd2 = newtr.insertCell(2);
+
+			    // Step 3: Store customer number, name and order.
+			    newtd0.innerHTML = document.getElementById("StartTable").rows.length;
+			    newtd1.innerHTML = document.getElementById("customer").value;
+				newtd2.innerHTML = document.getElementById("item").value;
+
+				//Step 4: Enalble adding rows to table by setting lineEmpty to 
+				lineEmpty = false;
+			}
+
+			function removeServerCustomer() {
+				var tableLengthcheck = document.getElementById("StartTable").rows.length;
+				console.log("Number of Rows in Table before row deletion " + tableLengthcheck);
+ 				document.getElementById("StartTable").deleteRow(1);
+
+ 				// Display Line Empty when only Header row exist in the table
+ 				if (tableLengthcheck == "2") {
+ 					var startTableDR1 = document.createElement("TR");
+				    startTableDR1.setAttribute("id", "DataRow");
+				    startTableDR1.setAttribute("style", "font-size: 24px");
+				    document.getElementById("StartTable").appendChild(startTableDR1);
+
+				    var startTableDR1C0 = document.createElement("TD");
+				    startTableDR1C0.setAttribute("id", "DataCell");
+				    var t = document.createTextNode("Line Empty");
+				    startTableDR1C0.appendChild(t);
+				    document.getElementById("DataRow").appendChild(startTableDR1C0);
+
+				    document.getElementById("DataCell").colSpan = "3";
+ 				}
+ 			}
+		</script>
+	</body>
+
+</html>

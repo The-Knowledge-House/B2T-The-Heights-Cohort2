@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Display Array Numbers Total</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h3 id = "output"></h3>
+
+		<script type="text/javascript">
+			// Step 1: Setup variables to store array values, index - i, and sum of array values
+			var array = [5, 2, 10, 0, 50, 1900, 25, 25];
+			var total = 0;
+			var i = 0;
+
+		    console.log(array.length + '<br>')
+/*
+		    while (i < array.length) {
+			    document.getElementById("output").innerHTML += "<br>The number is " + i;
+				i++;
+			}
+*/
+
+			//Step 2: Display each array value and add value to total.
+			while(i < array.length){
+				document.getElementById("output").innerHTML += 'Array element ' + i + ' value is ' + array[i] + '<br>';
+				total = total +  array[i];
+				i++;
+			}
+
+			//Step 3: Display total as the sum of the array values.
+			document.getElementById("output").innerHTML += '<br>Total for array values is ' + total;
+
+		</script>
+	</body>
+</html>

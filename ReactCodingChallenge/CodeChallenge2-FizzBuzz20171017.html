@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Coding Challenge #2 FizzBuzz</title>
+
+		<meta charset="utf-8"/>
+	
+	<body>
+		<h4 style = "padding:0px 50px 0px">
+			Coding Challenge #2: Write a program which prints the numbers from 1 to 100, each on a new line. For multiples of three print ‘Fizz’. For the multiples of five print ‘Buzz’. For numbers which are multiples of both three and five print ‘FizzBuzz’.
+		</h4>
+
+		<center>
+					<h3>The Numbers are:</h3>
+					<h3 id = "output"></h3>
+		</center>
+
+		<script type="text/javascript">
+			// Step 1: Setup variables to store count and result values
+			var counter = 1;
+			var outcome = 0;
+
+			//Step 2: Determine and display the value to display
+			while(counter <= 100){
+
+				//Step 2A: Determine the value to display
+				if(counter % 3 == 0 && counter % 5 == 0){
+					outcome = 1
+				}
+				else if (counter % 5 == 0){
+					outcome = 2;
+				}
+				else if (counter % 3 == 0){
+					outcome = 3;
+				}else {
+					outcome = 0;
+				}
+
+				//Step 2B: Display results
+				switch(outcome) {
+				    case 1:
+						if (counter !== 100){
+							document.getElementById("output").innerHTML += ' FizzBuzz ' + "<br>";
+						}else {
+							document.getElementById("output").innerHTML += ' and FizzBuzz. ' + "<br>";
+						}
+				        break;
+					case 2:
+						if (counter !== 100){
+							document.getElementById("output").innerHTML += 'Buzz ' + "<br>";
+						}else {
+							document.getElementById("output").innerHTML += ' and Buzz. '+ "<br>" + "<br>";
+						}						
+				        break;
+						
+				    case 3:
+				    	if (counter !== 100){
+							document.getElementById("output").innerHTML += 'Fizz ' + "<br>";
+						}else {
+							document.getElementById("output").innerHTML += ' and Fizz. ' + "<br>";
+						}						
+				        break;
+				    default: 
+				   		if (counter !== 100){
+						document.getElementById("output").innerHTML += counter + ' ' + "<br>";					
+						}else {
+							document.getElementById("output").innerHTML += ' and ' + counter + '.' + "<br>";
+						}
+					}
+			counter++
+			} 
+
+		</script>
+	</body>
+</html>

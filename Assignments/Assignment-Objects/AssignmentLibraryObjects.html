@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Assignment - Library Objects</title>
+
+		<meta charset="utf-8"/>
+
+	</head>
+
+	<body>
+		<p id = "ReadStatus"><p>
+
+		<script type="text/javascript">
+		/*For each book in the libary
+			Step 1 - Retrieve book information.
+			Step 2 - If book was read, GOTO Step 3, else GOTO Step 5.
+			Step 3 - Construct the reading was status statement Retrieve .
+			Step 4 - else GOTO Step 6
+			Step 5 - Construct the book not read status statement. 
+			Step 6 - Display reading status.
+			Step 7 - If all books in the library were checked for reading status, end status check. 
+		*/	
+
+			var library = [
+				{author: 'Bill Gates', title: 'The Road Ahead', readingStatus: true},
+				{author: 'Walter Isaacson', title: 'Steve Jobs', readingStatus: true},
+				{author: 'Suzanne Collins', title: 'Mockingjay: The Final Book Of The Hunger Games', readingStatus: false}
+			];
+
+			for (i = 0; i < library.length; i++) {
+				if (library[i].readingStatus == true) {
+					document.getElementById("ReadStatus").innerHTML += 'Already read ' + library[i].title + ' by ' + library[i].author + ". <br>";
+				}else {
+					document.getElementById("ReadStatus").innerHTML += 'You still need to read ' + library[i].title + ' by ' + library[i].author + ". <br>";
+				}
+			}
+
+		</script>
+	</body>
+</html>

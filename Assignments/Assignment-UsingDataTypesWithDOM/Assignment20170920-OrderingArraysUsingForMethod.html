@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Assignment - Display color array in order</title>
+			<meta charset="utf-8"/>
+		</head>
+		<body>
+			<h1></h1>
+			<h1 id='color'></h1>
+
+			<script type="text/javascript">
+				var color = ['Blue ', 'Green', 'Red', 'Orange', 'Violet', 'Indigo', 'Yellow'];
+				var o = ['th', 'st', 'nd', 'rd'];
+				var index
+				for (var i = 0; i < color.length; i++) {
+					switch (i) {
+						case 0: 	var choice = o[1]; //the suffix is 'st'
+							 		break;
+						case 1: 	var choice = o[2]; //the suffix is 'nd'
+							 		break;
+						case 2: 	var choice = o[3]; //the suffix is 'rd'
+							 		break;
+						default: 	var choice = o[0]; //the suffix is 'th'
+							 		break;
+					}
+
+					//Display color array in cell order
+					console.log((index = i + 1) + choice + " choice is " + color[i])
+					document.getElementById('color').innerHTML += (index = i + 1) + choice + " choice is " + color[i] + "<br>";
+				}
+
+
+			</script>
+	</body>
+</html>

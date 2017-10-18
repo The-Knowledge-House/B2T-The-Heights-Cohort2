@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8"/>
+	</head>
+	
+	<body>
+	<!--
+	Add a new row and two colums to a table.  Use Test Inputs to fill the table data.
+	Sample HTML file:
+	-->	
+		<table id="myTable" border = "1">
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+			</tr>
+			<tr>
+				<td>Clifford</td>
+				<td>Harris</td>
+			</tr>
+		</table><br>
+		
+		Column 1: <input type="text" id="col1" value="Curtis"><br>
+		Column 2: <input type="text" id="col2" value="Jackson"><br>
+
+		<input type="button" onclick="insertRow()" value="Insert row">
+	
+		<script type="text/javascript">
+			function insertRow(){
+			    var table = document.getElementById("myTable");
+			    var newtr = table.insertRow(2);
+			    var newtd1 = newtr.insertCell(0);
+			    var newtd2 = newtr.insertCell(1);
+			    newtd1.innerHTML = document.getElementById("col1").value;
+				newtd2.innerHTML = document.getElementById("col2").value;
+			}
+		</script>
+
+	</body>
+</html>

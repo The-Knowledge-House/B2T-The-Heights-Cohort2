@@ -1,0 +1,60 @@
+body {
+  font-family: helvetica, sans-serif;
+  margin: 40px 40 0px 40px;
+}
+.PageHeader {
+     background-color: cyan;
+     background: linear-gradient(bottom, rgba(0,255,255,1), rgba(0,255,255,.4));
+     background: -webkit-linear-gradient(bottom, rgba(0,255,255,1), rgba(0,255,255,.4));
+     background: -moz-linear-gradient(bottom, rgba(0,255,255,1), rgba(0,255,255,.4));
+     border: 2px solid red;
+     padding: 10px;
+}
+h1 { 
+  color: indigo; 
+  font-size: 24px;
+  text-align: center;
+  margin: 0 0 -20px 0;
+}
+h2 {
+  color: purple; 
+  font-size: 20px;
+  text-align: center;
+}
+.Slogans {
+  color: blue; 
+  font-size: 24px;
+  margin: 0 0 -5px 0;
+}
+.AboutMe {
+	font-family: arial; 
+	font-size: 20px; 
+	padding: 10px;
+}
+.Experience {
+	font-family: arial;
+	font-size: 20px;
+	padding:20px;
+}
+img {
+	height: 600px; 
+	width: 800px;
+}
+.ContactInformation {
+	font-family: arial;
+	font-size: 20px;
+	padding:20px;
+}
+ul {
+	list-style-type: disc;
+	margin: -15px 0 0 0;
+}
+.LinksPage {
+	font-family: arial; 
+	font-size: 20px; 
+	padding:20px;
+}
+img {
+	 display: block;
+     margin: 0 auto; 
+ }

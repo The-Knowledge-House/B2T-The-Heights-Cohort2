@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Assignment Convert Word From English To Pig Latin</title>
+		<style>
+			.center {
+    			margin: auto;
+    			width: 50%;
+    			border: 3px solid green;
+    			padding: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="center">
+			<h1 id="GetWord"></h1>
+			<h1 id="PutWord"></h1>
+		</div>
+		<script>
+		/*  Setup storage locations for the words */
+			var InputWord = "English word";
+			var OutputWord = "Pig Latin Word";
+
+		/* Get input word from the User */
+			InputWord = prompt("Please enter word in English");
+
+		/* Convert input word and store it in output location */
+			OutputWord = InputWord.substring(1,InputWord.lenght) + InputWord.charAt(0) + "ay";
+
+		/* Display "English word" and "Pig Latin word" */
+			document.getElementById("GetWord").style.textAlign="center";
+		    document.getElementById("GetWord").innerHTML = "The English word is " + InputWord;
+		    document.getElementById("PutWord").style.textAlign="center";
+		    document.getElementById("PutWord").innerHTML = "The Pig Latin word is " + OutputWord;
+		    
+		</script>
+
+	</body>
+</html>
